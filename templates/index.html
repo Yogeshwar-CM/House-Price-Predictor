@@ -2,8 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FULLSTACK101</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css')}}"
+    />
+    <title>House Pricing</title>
   </head>
   <body>
     <div class="main">
@@ -11,12 +14,12 @@
         <h1>Welcome to House Pricing Checker</h1>
         <p>
           Predict the price of your dream home with our accurate and reliable
-          house pricing predictor
+          house pricing predictor.
         </p>
+        <a href="/login">
+          <button>Get started</button>
+        </a>
       </div>
-      <a href="/login">
-        <button>GET STARTED</button>
-      </a>
     </div>
   </body>
 </html>

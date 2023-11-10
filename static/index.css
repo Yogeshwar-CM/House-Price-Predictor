@@ -1,0 +1,33 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 0;
+}
+
+.hero p {
+  font-size: 1.4rem;
+}
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+footer p {
+  font-size: 1rem;
+}

@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
-</head>
-<body>
-    <h1>HOME</h1>
-    <p>Welcome {{ username }}</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Price Predictor</title>
+  </head>
+  <body>
+    <h1>Welcome {{ username }}</h1>
+    <form action="/home">
+      <p>Bedrooms:</p>
+      <input type="number" id="bedrooms" name="bedrooms" />
+      <p>Bathrooms:</p>
+      <input type="number" id="bathrooms" name="bathrooms" />
+      <p>Square Feet:</p>
+      <input type="number" id="sqft" name="sqft" />
+      <p>BHK:</p>
+      <input type="number" id="bhk" name="bhk" />
+      <button type="submit">Search</button>
+    </form>
+    <div class="prediction-result"></div>
+  </body>
 </html>
