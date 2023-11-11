@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 
+import pickle
+import numpy as np
+
+model = pickle.load(open('model.pkl','rb'))
 app = Flask(__name__) 
 
 conn = sqlite3.connect('gdsc.db', check_same_thread=False)
@@ -31,7 +35,7 @@ def login_route():
         password = request.form['password']
         user = login(username, password)
         if user:
-            return render_template('home.html', username=username)
+            return render_template('home.html',price="Null")
         else:
             return render_template('login.html')
     else:
@@ -45,8 +49,22 @@ def register_route():
     username = request.form['username']
     password = request.form['password']
     register(name, username, password)
-    return render_template('home.html', username=username)
+    return render_template('home.html', price="Null")
 
+@app.route('/home', methods=['GET', 'POST'])
+def home_route():
+    if request.method == 'GET':
+        return render_template('home.html')
+    
+    else:
+        size = int(request.form['bedrooms'])
+        bathrooms = float(request.form['bathrooms'])
+        sqft = float(request.form['sqft'])
+        bhk = float(request.form['bhk'])
+        input = np.array([[size, bathrooms, sqft, bhk]])
+        val = model.predict(input)
+        print(val)
+        return render_template('home.html', price = val[0])
+    
 if __name__ == '__main__':
     app.run(debug=True)
-

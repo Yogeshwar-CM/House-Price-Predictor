@@ -7,8 +7,8 @@
     <title>House Price Predictor</title>
   </head>
   <body>
-    <h1>Welcome {{ username }}</h1>
-    <form action="/home">
+    <h1>Welcome to House Price Predictor</h1>
+    <form action="/home" method="POST">
       <p>Bedrooms:</p>
       <input type="number" id="bedrooms" name="bedrooms" />
       <p>Bathrooms:</p>
@@ -19,6 +19,6 @@
       <input type="number" id="bhk" name="bhk" />
       <button type="submit">Search</button>
     </form>
-    <div class="prediction-result"></div>
+    <div class="prediction-result">Price = {{ price }}</div>
   </body>
 </html>
